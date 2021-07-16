@@ -41,7 +41,7 @@ handlePasswordChange = event => {
         {this.state.isFailedLogIn? <div id="errorAuth">Вы ввели неправильный логин или пароль</div> : null}
         <h1>Авторизация</h1>
         <input name="username" id="username" type="text" placeholder="Введите логин" onChange={this.handleUsernameChange}/><br/><br/>
-        <input name="website" id="website" type="text" placeholder="Введите пароль" onChange={this.handlePasswordChange}/><br/><br/>
+        <input name="website" id="website" type="password" placeholder="Введите пароль" onChange={this.handlePasswordChange}/><br/><br/>
         <button onClick={this.handleLoginClick}>Войти</button>
 
       </div>;

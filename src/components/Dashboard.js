@@ -1,5 +1,6 @@
 import React from "react";
-import ToDo from "./ToDo";
+import Task from './Task';
+
 
 
 class Dashboard extends React.Component{
@@ -27,14 +28,33 @@ try{
     })
   } 
 } 
+toggleCompleted = id => {
+  const todos = [...this.state.todos];
+  const todo = todos.filter(todo => todo.id === id)[0];
+  const index = todos.map(function(e) { return e.id; }).indexOf(id);
+  todo.completed = !todo.completed;
+  todos[index] = todo;
+  this.setState({todos});
+};
+
+deleteTodo = id => {
+  this.setState({
+      todos: this.state.todos.filter(todo => todo.id !== id)
+  })
+};
   render(){
     const {error, todos} =this.state
-    
 
     return <div className="Dashboard">
       <h1 className="top">Всего задач: {todos.length}</h1>
       <h2>{error}</h2>
-     {todos.map(todo =>(<ToDo todo={todo} key={todo.id}></ToDo>
+      {todos.map(task =>(<Task 
+      
+      task={task}
+      key={task.id}
+      toggleCompleted={() => this.toggleCompleted(task.id)}
+      deleteTodo={() => this.deleteTodo(task.id)}
+     ></Task>
        )) 
      }<br></br>
      <button onClick={this.handleClick} className="exit">Выйти</button>
