@@ -37,11 +37,7 @@ toggleCompleted = id => {
   this.setState({todos});
 };
 
-deleteTodo = id => {
-  this.setState({
-      todos: this.state.todos.filter(todo => todo.id !== id)
-  })
-};
+
   render(){
     const {error, todos} =this.state
 
@@ -49,11 +45,9 @@ deleteTodo = id => {
       <h1 className="top">Всего задач: {todos.length}</h1>
       <h2>{error}</h2>
       {todos.map(task =>(<Task 
-      
       task={task}
       key={task.id}
       toggleCompleted={() => this.toggleCompleted(task.id)}
-      deleteTodo={() => this.deleteTodo(task.id)}
      ></Task>
        )) 
      }<br></br>
