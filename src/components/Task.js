@@ -1,6 +1,6 @@
 const Task = ({ task, ...props }) => {
     const ActionBtn = () => <div className="actionBtn">{task.completed?<span onClick={props.toggleCompleted}>✔️</span>:
-    <span aria-label="delete" role="img" onClick={props.toggleCompleted}>❌</span>}</div>;
+    <span onClick={props.toggleCompleted}>❌</span>}</div>;
     
     
     return(
