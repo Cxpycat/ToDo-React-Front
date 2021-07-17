@@ -1,7 +1,7 @@
 const Task = ({ task, ...props }) => {
     const ActionBtn = () => <div className="actionBtn">{task.completed?
-    <span onClick={props.toggleCompleted}>✔️</span>:
-    <span onClick={props.toggleCompleted}>❌</span>}
+    <span>✔️</span>:
+    <span>❌</span>}
     </div>;
   
     return(
